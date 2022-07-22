@@ -1,5 +1,6 @@
-pandas
-numpy
-scipy
 matplotlib
+numpy
+openpyxl
+pandas
+scipy
 streamlit
