@@ -5,7 +5,7 @@ from scipy.optimize import curve_fit,fsolve
 import matplotlib.pyplot as plt
 
 st.title("Solver para Curva S")
-st.markdown("#### Detalle de Avance Real vs Plan")
+
 
 
 
@@ -30,6 +30,8 @@ fileup = st.sidebar.file_uploader(label="Subir planilla",
                         help="Esta versión recibe archivos en excel como insumo")
 
 if fileup is not None:
+    st.markdown("#### Detalle de Avance Real vs Plan")
+    
     df = pd.read_excel(fileup)
    
     # CSS to inject contained in a string
