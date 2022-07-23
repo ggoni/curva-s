@@ -43,17 +43,15 @@ if fileup is not None:
 
     popt, _ = curve_fit(s_curve,df.Semana,df.Real)
 
-    Pred = s_curve(df,popt[0],popt[1])
-    
+    Pred = s_curve(df.Semana,popt[0],popt[1])
+
     fig, ax = plt.subplots()
-    plt.plot(df.Semana,Pred,color='red', linestyle='--', label ="Proyección")
-    plt.scatter(df.Semana, df.Real, label= "Real")
-    plt.plot(df.Semana, df.Plan,color='black',label = "Plan")
+    plt.scatter(df.Semana,df.Real, label= "Real")
+    plt.plot(df.Semana, Pred,color='red', linestyle='--', label ="Proyección");
+    plt.plot(df.Semana, df.Plan,color='black',label = "Plan")    
     plt.legend(loc="upper left")
     
     st.pyplot(fig)
-    
-    st.write(Pred)
 
 
     def fitted_s_curve(t,k=popt[0],a=popt[1]):
@@ -71,5 +69,8 @@ if fileup is not None:
     
     final_week = round(root[0])
     st.markdown(f"Al ritmo actual, el proyecto se terminaría en la semana **{final_week}**")
+    
+
+
     
 
