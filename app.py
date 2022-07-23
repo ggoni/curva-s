@@ -47,7 +47,7 @@ if fileup is not None:
 
     fig, ax = plt.subplots()
     plt.scatter(df.Semana, df.Real, label= "Real")
-    plt.plot(df.Semana, df.Pred,color='red', linestyle='--', label ="Proyección");
+    plt.plot(df.Semana, df.Pred,color='red', linestyle='--', label ="Proyección")
     plt.plot(df.Semana, df.Plan,color='black',label = "Plan")    
     plt.legend(loc="upper left")
     
