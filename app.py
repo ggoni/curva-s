@@ -5,6 +5,7 @@ from scipy.optimize import curve_fit,fsolve
 import matplotlib.pyplot as plt
 
 st.title("Solver para Curva S")
+st.markdown("## Detalle de Avance Real vs Plan")
 
 
 
