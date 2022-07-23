@@ -52,6 +52,8 @@ if fileup is not None:
     plt.legend(loc="upper left")
     
     st.pyplot(fig)
+    
+    st.write(Pred)
 
 
     def fitted_s_curve(t,k=popt[0],a=popt[1]):
