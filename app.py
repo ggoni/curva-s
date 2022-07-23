@@ -85,7 +85,7 @@ if fileup is not None:
     
     
     final_week = round(root[0])
-    st.markdown(f"Al ritmo actual, el proyecto se terminaría en la semana **{final_week}**")
+    st.markdown(f"Al ritmo actual, el proyecto concluiría en la semana **{final_week}**")
     
 
 
