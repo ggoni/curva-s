@@ -43,12 +43,12 @@ if fileup is not None:
 
     popt, _ = curve_fit(s_curve,df.Semana,df.Real)
 
-    df.Pred = s_curve(df,popt[0],popt[1])
-
+    df.Pred =pd.Series(s_curve(df,popt[0],popt[1]))
+    
     fig, ax = plt.subplots()
     plt.scatter(df.Semana, df.Real, label= "Real")
-    #plt.plot(df.Semana, df.Pred,color='red', linestyle='--', label ="Proyección")
-    plt.plot(df.Semana, df.Plan,color='black',label = "Plan")    
+    plt.plot(df.Semana, df.Plan,color='black',label = "Plan")
+    plt.plot(df.Semana, df.Pred,color='red', linestyle='--', label ="Proyección")
     plt.legend(loc="upper left")
     
     st.pyplot(fig)
