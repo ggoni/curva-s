@@ -33,7 +33,7 @@ if fileup is not None:
     st.write(df)
     df = df.tail(len(df)-1)
 
-    smin, smax, t0 = df.Real.min(), 1, df.W.min()
+    smin, smax, t0 = df.Real.min(), 1, df.Semana.min()
 
     def s_curve(t,k,a):
 
@@ -41,14 +41,15 @@ if fileup is not None:
 
 
 
-    popt, _ = curve_fit(s_curve,df.W,df.Real)
+    popt, _ = curve_fit(s_curve,df.Semana,df.Real)
 
-    Pred = s_curve(df.W,popt[0],popt[1])
+    Pred = s_curve(df
+                   ,popt[0],popt[1])
 
     fig, ax = plt.subplots()
-    plt.scatter(df.W,df.Real, label= "Real")
-    plt.plot(df.W, Pred,color='red', linestyle='--', label ="Proyección");
-    plt.plot(df.W, df.Plan,color='black',label = "Plan")    
+    plt.scatter(df.Semana,df.Real, label= "Real")
+    plt.plot(df.Semana, Pred,color='red', linestyle='--', label ="Proyección");
+    plt.plot(df.Semana, df.Plan,color='black',label = "Plan")    
     plt.legend(loc="upper left")
     
     st.pyplot(fig)
@@ -62,7 +63,7 @@ if fileup is not None:
     def pending(t):
         return 0.995 - fitted_s_curve(t)
 
-    valor = df.W.max()
+    valor = df.Semana.max()
 
     root = fsolve(pending,valor)
     
