@@ -31,18 +31,19 @@ fileup = st.sidebar.file_uploader(label="Subir planilla",
 if fileup is not None:
     df = pd.read_excel(fileup)
    
-    hide_dataframe_row_index = """
+    # CSS to inject contained in a string
+    hide_table_row_index = """
             <style>
-            .row_heading.level0 {display:none}
-            .blank {display:none}
+            thead tr th:first-child {display:none}
+            tbody th {display:none}
             </style>
             """
 
     # Inject CSS with Markdown
-    st.markdown(hide_dataframe_row_index, unsafe_allow_html=True)
+    st.markdown(hide_table_row_index, unsafe_allow_html=True)
 
-    # Display an interactive table  
-    st.dataframe(df)
+    # Display a static table
+    st.table(df)
     
     df = df.tail(len(df)-1)
 
